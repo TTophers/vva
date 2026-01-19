@@ -170,7 +170,8 @@
     .slideshow {
       flex: 1 1 300px;
       position: relative;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -180,28 +181,83 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      object-fit: cover;
       opacity: 0;
-      animation: fade 9s infinite;
+      transition: opacity 0.5s ease;
     }
 
-    /* Stagger animation delays for each slide */
-    .slide:nth-child(1) {
-      animation-delay: 0s;
-    }
-    .slide:nth-child(2) {
-      animation-delay: 3s;
-    }
-    .slide:nth-child(3) {
-      animation-delay: 6s;
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      margin: auto;
     }
 
-    @keyframes fade {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      30% { opacity: 1; }
-      40% { opacity: 0; }
-      100% { opacity: 0; }
+    .slide.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    /* Overlay for each slide */
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 228, 196, 0.9); /* bisque-like semi-transparent warm background */
+      color: #000; /* Black, 100% opacity for maximum contrast */
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      padding-top: 50px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 8px;
+      pointer-events: none;
+      font-size: 2rem;
+      user-select: none;
+    }
+
+    .slide-overlay > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .slide:hover .slide-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slideshow button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 4px;
+      user-select: none;
+      transition: background 0.3s ease;
+      z-index: 10;
+    }
+
+    .slideshow button:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .slideshow button.prev {
+      left: 8px;
+    }
+
+    .slideshow button.next {
+      right: 8px;
     }
 
     .cta {
@@ -306,10 +362,52 @@
     </div>
 
     <div class="slideshow" aria-label="Slideshow of placeholder images">
-      <!-- Placeholder images for slideshow -->
-      <img src="https://via.placeholder.com/400x200?text=Slide+1" alt="Slide 1 placeholder image" class="slide" />
-      <img src="https://via.placeholder.com/400x200?text=Slide+2" alt="Slide 2 placeholder image" class="slide" />
-      <img src="https://via.placeholder.com/400x200?text=Slide+3" alt="Slide 3 placeholder image" class="slide" />
+      <div class="slide active">
+        <img src="/pics/slides1.avif" alt="Slide 1" />
+        <div class="slide-overlay">Mike Huber awarded the Chapter Member of The Year in 2023</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides2.avif" alt="Slide 2" />
+        <div class="slide-overlay">Chapter Chaplain Garry (“Chappy”) Turks awarded the Chapel of Four Chaplains’ Legion of Honor Bronze Medallion of Honor.</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides3.avif" alt="Slide 3" />
+        <div class="slide-overlay">Principle person to create and sponsor the CO Freedom Memorial</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides4.avif" alt="Slide 4" />
+        <div class="slide-overlay">Quilts of Valor 2020</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides5.avif" alt="Slide 5" />
+        <div class="slide-overlay">Donor's Recognition</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides6.avif" alt="Slide 6" />
+        <div class="slide-overlay">Joe Dempsey and Ed Seiler<br>
+          Joe and Ed in Washington D.C. as part of 2023 Honor Flight</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides7.avif" alt="Slide 7" />
+        <div class="slide-overlay">RMHF Lyons <br>
+          Rocky Mountain Honor Flight</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides8.avif" alt="Slide 8" />
+        <div class="slide-overlay">Women's Vietnam Memorial<br>
+          Special dedication!</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides9.avif" alt="Slide 9" />
+        <div class="slide-overlay">Chapter Color Guard</div>
+      </div>
+      <div class="slide">
+        <img src="/pics/slides10.avif" alt="Slide 10" />
+        <div class="slide-overlay">Gold Star Mother Moument <br>
+          At the Colorado Freedom Memorial</div>
+      </div>
+      <button class="prev" aria-label="Previous slide">Previous</button>
+      <button class="next" aria-label="Next slide">Next</button>
     </div>
   </div>
 
@@ -359,6 +457,71 @@
     <a href="https://www.vvacostatecouncil.org" target="_blank">Colorado State Council</a>
   </p>
 </footer>
+
+<script>
+  (function() {
+    const slides = document.querySelectorAll('.slideshow .slide');
+    const prevBtn = document.querySelector('.slideshow button.prev');
+    const nextBtn = document.querySelector('.slideshow button.next');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let intervalId;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if(i === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      currentIndex = index;
+    }
+
+    function nextSlide() {
+      showSlide((currentIndex + 1) % totalSlides);
+    }
+
+    function prevSlide() {
+      showSlide((currentIndex - 1 + totalSlides) % totalSlides);
+    }
+
+    function startInterval() {
+      intervalId = setInterval(nextSlide, 3000);
+    }
+
+    function stopInterval() {
+      clearInterval(intervalId);
+    }
+
+    function resetInterval() {
+      stopInterval();
+      startInterval();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      resetInterval();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      resetInterval();
+    });
+
+    slides.forEach(slide => {
+      slide.addEventListener('mouseenter', () => {
+        stopInterval();
+      });
+      slide.addEventListener('mouseleave', () => {
+        startInterval();
+      });
+    });
+
+    showSlide(currentIndex);
+    startInterval();
+  })();
+</script>
 
 </body>
 </html>
