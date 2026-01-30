@@ -4,333 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vietnam Veterans of America – Chapter 1106</title>
-  <style>
-    :root {
-      --primary: #0b3d91;
-      --secondary: #b22234;
-      --light: #ffffff;
-      --dark: #1a1a1a;
-    }
+  <link rel="stylesheet" href="styles.css">
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background: var(--light);
-    }
-
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 1.2rem 2rem;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .nav h1 {
-      font-size: 1.4rem;
-      letter-spacing: 0.5px;
-      color: white;
-    }
-
-    .nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .nav a {
-      color: var(--light);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    .nav a:hover {
-      color: var(--secondary);
-      text-decoration: underline;
-    }
-
-    .hero {
-      position: relative;
-      color: white;
-      padding: 7rem 2rem;
-      min-height: 480px;
-      text-align: center;
-      background: url("/pics/pic1-vva.jpg") center center/contain no-repeat;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 0;
-    }
-
-    .hero h2, .hero p {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  /* Deep “bubble” shadow for readability */
-  text-shadow: 
-    2px 2px 4px rgba(0,0,0,0.9),
-    4px 4px 8px rgba(0,0,0,0.7),
-    6px 6px 12px rgba(0,0,0,0.5);
-}
-
-/* Optional: make paragraph slightly smaller and more readable */
-.hero p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  text-shadow: 
-  2px 2px 4px rgba(0,0,0,0.9),
-    4px 4px 8px rgba(0,0,0,0.7),
-    6px 6px 12px rgba(0,0,0,0.5);
-}
-
-    .hero h2 { font-size: 2.4rem; margin-bottom: 1rem; color: white; }
-    .hero p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: white; }
-
-    /* Scrolling flags container */
-    .flag-scroll-container {
-      position: fixed;
-      top: 50px;
-      right: 1rem;
-      width: 60px;
-      height: auto;
-      overflow: visible;
-      z-index: 9999;
-      opacity: 0.8;
-    }
-
-    .flag-scroll {
-      display: flex;
-      flex-direction: column;
-      /* Removed animation */
-    }
-
-    .flag-scroll img {
-      width: 60px;
-      height: auto;
-      margin-bottom: 8px;
-      flex-shrink: 0;
-    }
-
-    @keyframes scrollFlags {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        transform: translateY(-120px);
-      }
-    }
-
-    .container { max-width: 1100px; margin: auto; padding: 3rem 2rem; }
-
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      color: var(--dark);
-    }
-
-    .card h3 { margin-bottom: 0.5rem; color: var(--primary); }
-
-    .highlight {
-      background: #fff0f0;
-      padding: 2rem;
-      border-left: 6px solid var(--secondary);
-      margin: 2rem 0;
-      color: var(--dark);
-      flex: 1 1 300px;
-    }
-
-    /* Flex container for highlight and slideshow */
-    .highlight-slideshow-wrapper {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin: 2rem 0;
-    }
-
-    /* Slideshow styles */
-    .slideshow {
-      flex: 1 1 300px;
-      position: relative;
-      width: 300px;
-      height: 300px;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      margin: auto;
-    }
-
-    .slide.active {
-      opacity: 1;
-      position: relative;
-    }
-
-    /* Overlay for each slide */
-    .slide-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 228, 196, 0.9); /* bisque-like semi-transparent warm background */
-      color: #000; /* Black, 100% opacity for maximum contrast */
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: center;
-      padding: 1rem;
-      padding-top: 50px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 8px;
-      pointer-events: none;
-      font-size: 2rem;
-      user-select: none;
-    }
-
-    .slide-overlay > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .slide:hover .slide-overlay {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .slideshow button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.4);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-      border-radius: 4px;
-      user-select: none;
-      transition: background 0.3s ease;
-      z-index: 10;
-    }
-
-    .slideshow button:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .slideshow button.prev {
-      left: 8px;
-    }
-
-    .slideshow button.next {
-      right: 8px;
-    }
-
-    .cta {
-      background: var(--secondary);
-      color: white;
-      text-align: center;
-      padding: 3rem 2rem;
-      border-radius: 8px;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.8rem 1.6rem;
-      background: white;
-      color: var(--secondary);
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .cta a:hover {
-      background-color: var(--primary);
-      color: white;
-    }
-
-    footer {
-      background: #111;
-      color: #ccc;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-
-    footer a { color: #ccc; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    @media (max-width: 700px) {
-      .hero h2 { font-size: 1.8rem; }
-      .nav ul { justify-content: center; }
-      .highlight-slideshow-wrapper {
-        flex-direction: column;
-      }
-      .flag-scroll-container {
-        width: 45px;
-        height: auto;
-        top: 50px;
-        right: 0.5rem;
-      }
-      .flag-scroll img {
-        width: 45px;
-        margin-bottom: 6px;
-      }
-    }
-  </style>
 </head>
 <body>
 
@@ -341,14 +16,15 @@
       <li><a href="/index.html">Home</a></li>
       <li><a href="/membership.html">Membership</a></li>
       <li><a href="/donate.html">Donate</a></li>
-      <li><a href="/scholarship.html">Scholarship App</a></li>
-      <li><a href="/stories.html">Stories of Interest</a></li>
-      <li><a href="/vet-reasources.html">Veterans Resources</a></li>
       <li><a href="/newsletter.html">Newsletter</a></li>
       <li><a href="/friends.html">Friends of 1106</a></li>
-      <li><a href="#">More</a></li>
     </ul>
   </nav>
+  
+  <button class="nav-toggle" aria-label="Toggle navigation">
+    ☰ Menu
+  </button>
+
 </header>
 
 <section class="hero">
@@ -366,7 +42,58 @@
     </div>
   </div>
 </section>
+<!-- Left informational strip -->
+<aside class="side-strip left">
+  <div class="side-content">
+    <h3>Folds of the American Flag</h3>
+    <p>When folding the flag to store or present, as a way to honor the life of a fallen soldier, 13 Folds are required. Here are the reasons for each fold:</p>
+    <p><strong>2nd Fold</strong> - Signifies our belief in eternal life.</p>
+    <p><strong>3rd Fold</strong> - Honors the veteran who gave a portion of their life in defense of our country.</p>
+    <p><strong>4th Fold</strong> -  Represents our trust in God and reliance on His guidance.</p>
+    <p><strong>5th Fold</strong> - Pays respect to our country, which, as Stephen Decatur said, “may she always be right, but it is still our country, right or wrong.” </p>
+    <p><strong>6th Fold</strong> - Represents our hearts, pledging allegiance to the flag and the republic it stands for.</p>
+    <p><strong>7th Fold</strong> - A tribute to the armed forces who protect our country and our flag.</p>
+    <p><strong>8th Fold</strong> - Honors those who faced the “valley of the shadow of death” for our freedom, and our mothers, for whom the flag flies.</p>
+    <p><strong>9th Fold</strong> - Recognizes the devotion and loyalty of women, whose faith and love shape the character of our nation. </p>
+    <p><strong>10th Fold</strong> -  Honors fathers who have given their sons and daughters for the defense of the country.</p>
+    <p><strong>11th Fold</strong> - For Hebrew citizens, it represents the lower portion of King David’s and King Solomon’s seal, glorifying the God of Abraham, Isaac, and Jacob.</p>
+    <p><strong>12th Fold</strong> - For Christian citizens, it symbolizes eternity and honors God the Father, Son, and Holy Ghost.</p>
+    <p><strong>13th Fold</strong> - When fully folded, the stars are uppermost, reminding us of our national motto, “In God We Trust.”</p>
+    <!-- add remaining folds here -->
+  </div>
+</aside>
 
+<!-- Right informational strip -->
+<aside class="side-strip right">
+  <div class="side-content">
+    <h3>ROTRUCK - 2015</h3>
+    <p>Welcome Home
+      I talked to some Vietnam Vets today.
+      The subject wasn't about fun and play.
+      It was about the heartache of coming home, To a group of people who threw a stone.
+      And spit was loosed from their hateful mouth,
+      They tried to make us feel like a louse.
+      But we held our head high those days, Just glad to be able to see sun rays.
+      Many of us shown broken bodies and wounds,
+      And in our heads we could still hear the booms.
+      But the worst was leaving friends behind,
+      Some to never return because they lost their mind.
+      And to this day we still remember the hate, That was blasted at us in every state.
+      Baby killers, war criminal, innocent lives,
+      Was all the haters could say with their lies!
+      But for the red, white, and blue we did our best, We still stand strong, even with our mental test.
+      But many are homeless and struggle day to day,
+      A terrible price for their effort they have to pay.
+      Drugs and alcohol they use to deaden the pain,
+      To wash away the feeling of the country's distain.
+      Next time you see a veteran displaying Vietnam,
+      Please say Welcome Home and extend your hand.
+      It may just heal a wound that still festers within,
+      But most times they'll nod and give you a grin!
+      God bless them alllll Amen
+      ROTRUCK - 2015</p>
+  </div>
+</aside>
 <section class="container">
   <h2 class="section-title">Our Mission</h2>
   <p>Vietnam Veterans of America, Chapter 1106 is dedicated to promoting and supporting the full range of issues important to Vietnam veterans, creating a strong identity for our generation, and changing public perception through service, advocacy, and remembrance.</p>
@@ -379,50 +106,24 @@
       9195 E Mineral Ave, Centennial, CO 80112
     </div>
 
-    <div class="slideshow" aria-label="Slideshow of placeholder images">
+    <div class="slideshow" aria-label="Slideshow of images">
       <div class="slide active">
-        <img src="/pics/slides1.avif" alt="Slide 1" />
-        <div class="slide-overlay">Mike Huber awarded the Chapter Member of The Year in 2023</div>
+        <img src="/pics/slides1.avif" alt="Slide 1" class="slide-img"/>
       </div>
       <div class="slide">
-        <img src="/pics/slides2.avif" alt="Slide 2" />
-        <div class="slide-overlay">Chapter Chaplain Garry (“Chappy”) Turks awarded the Chapel of Four Chaplains’ Legion of Honor Bronze Medallion of Honor.</div>
+        <img src="/pics/slides2.avif" alt="Slide 2" class="slide-img"/>
       </div>
       <div class="slide">
-        <img src="/pics/slides3.avif" alt="Slide 3" />
-        <div class="slide-overlay">Principle person to create and sponsor the CO Freedom Memorial</div>
+        <img src="/pics/slides3.avif" alt="Slide 3" class="slide-img"/>
       </div>
       <div class="slide">
-        <img src="/pics/slides4.avif" alt="Slide 4" />
-        <div class="slide-overlay">Quilts of Valor 2020</div>
+        <img src="/pics/slides4.avif" alt="Slide 4" class="slide-img"/>
       </div>
       <div class="slide">
-        <img src="/pics/slides5.avif" alt="Slide 5" />
-        <div class="slide-overlay">Donor's Recognition</div>
+        <img src="/pics/slides5.avif" alt="Slide 5" class="slide-img"/>
       </div>
       <div class="slide">
-        <img src="/pics/slides6.avif" alt="Slide 6" />
-        <div class="slide-overlay">Joe Dempsey and Ed Seiler<br>
-          Joe and Ed in Washington D.C. as part of 2023 Honor Flight</div>
-      </div>
-      <div class="slide">
-        <img src="/pics/slides7.avif" alt="Slide 7" />
-        <div class="slide-overlay">RMHF Lyons <br>
-          Rocky Mountain Honor Flight</div>
-      </div>
-      <div class="slide">
-        <img src="/pics/slides8.avif" alt="Slide 8" />
-        <div class="slide-overlay">Women's Vietnam Memorial<br>
-          Special dedication!</div>
-      </div>
-      <div class="slide">
-        <img src="/pics/slides9.avif" alt="Slide 9" />
-        <div class="slide-overlay">Chapter Color Guard</div>
-      </div>
-      <div class="slide">
-        <img src="/pics/slides10.avif" alt="Slide 10" />
-        <div class="slide-overlay">Gold Star Mother Moument <br>
-          At the Colorado Freedom Memorial</div>
+        <img src="/pics/slides6.avif" alt="Slide 6" class="slide-img"/>
       </div>
       <button class="prev" aria-label="Previous slide">Previous</button>
       <button class="next" aria-label="Next slide">Next</button>
@@ -475,70 +176,66 @@
     <a href="https://www.vvacostatecouncil.org" target="_blank">Colorado State Council</a>
   </p>
 </footer>
-
 <script>
-  (function() {
-    const slides = document.querySelectorAll('.slideshow .slide');
-    const prevBtn = document.querySelector('.slideshow button.prev');
-    const nextBtn = document.querySelector('.slideshow button.next');
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let intervalId;
+const slides = document.querySelectorAll('.slideshow .slide');
+const prevBtn = document.querySelector('.slideshow .prev');
+const nextBtn = document.querySelector('.slideshow .next');
+let currentIndex = 0;
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        if(i === index) {
-          slide.classList.add('active');
-        } else {
-          slide.classList.remove('active');
-        }
-      });
-      currentIndex = index;
-    }
+function showSlide(index) {
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  currentIndex = index;
+}
 
-    function nextSlide() {
-      showSlide((currentIndex + 1) % totalSlides);
-    }
+function nextSlide() { showSlide((currentIndex + 1) % slides.length); }
+function prevSlide() { showSlide((currentIndex - 1 + slides.length) % slides.length); }
 
-    function prevSlide() {
-      showSlide((currentIndex - 1 + totalSlides) % totalSlides);
-    }
+prevBtn.addEventListener('click', prevSlide);
+nextBtn.addEventListener('click', nextSlide);
+slides.forEach(slide => {
+  slide.addEventListener('click', () => {
+    const imgSrc = slide.querySelector('img').src;
 
-    function startInterval() {
-      intervalId = setInterval(nextSlide, 3000);
-    }
+    // Create overlay
+    const lightbox = document.createElement('div');
+    lightbox.classList.add('lightbox');
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <img src="${imgSrc}" alt="Expanded Image"/>
+      </div>
+    `;
 
-    function stopInterval() {
-      clearInterval(intervalId);
-    }
+    document.body.appendChild(lightbox);
 
-    function resetInterval() {
-      stopInterval();
-      startInterval();
-    }
-
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      resetInterval();
+    // Close button functionality
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    closeBtn.addEventListener('click', () => {
+      document.body.removeChild(lightbox);
     });
 
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      resetInterval();
+    // Also close if clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        document.body.removeChild(lightbox);
+      }
     });
+  });
+});
 
-    slides.forEach(slide => {
-      slide.addEventListener('mouseenter', () => {
-        stopInterval();
-      });
-      slide.addEventListener('mouseleave', () => {
-        startInterval();
-      });
+showSlide(currentIndex);
+  // Mobile navigation toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
+
+      const isOpen = nav.classList.contains('nav-open');
+      navToggle.setAttribute('aria-expanded', isOpen);
     });
-
-    showSlide(currentIndex);
-    startInterval();
-  })();
+  }
 </script>
 
 </body>

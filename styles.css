@@ -1,0 +1,492 @@
+:root {
+  --primary: #0b3d91;
+  --secondary: #b22234;
+  --light: #ffffff;
+  --dark: #1a1a1a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--light);
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 1.6rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+}
+
+header + * {
+  scroll-margin-top: 110px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nav h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.nav a {
+  color: var(--light);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: bold;
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.12);
+  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nav a:hover {
+  background: var(--light);
+  color: var(--primary);
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.hero {
+  position: relative;
+  color: white;
+  padding: 7rem 2rem;
+  min-height: 480px;
+  text-align: center;
+  background: url("/pics/pic1-vva.jpg") center center/contain no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 0;
+}
+
+.hero h2, .hero p {
+position: relative;
+z-index: 1;
+color: white;
+text-align: center;
+/* Deep “bubble” shadow for readability */
+text-shadow: 
+2px 2px 4px rgba(0,0,0,0.9),
+4px 4px 8px rgba(0,0,0,0.7),
+6px 6px 12px rgba(0,0,0,0.5);
+}
+
+/* Optional: make paragraph slightly smaller and more readable */
+.hero p {
+font-size: 1.2rem;
+max-width: 700px;
+margin: 0 auto;
+text-shadow: 
+2px 2px 4px rgba(0,0,0,0.9),
+4px 4px 8px rgba(0,0,0,0.7),
+6px 6px 12px rgba(0,0,0,0.5);
+}
+
+.hero h2 { font-size: 2.4rem; margin-bottom: 1rem; color: white; }
+.hero p { max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: white; }
+
+/* Scrolling flags container */
+.flag-scroll-container {
+  position: fixed;
+  top: 100px;
+  right: 1rem;
+  width: 60px;
+  height: auto;
+  overflow: visible;
+  z-index: 10001;
+  opacity: 0.8;
+}
+
+.flag-scroll {
+  display: flex;
+  flex-direction: column;
+  /* Removed animation */
+}
+
+.flag-scroll img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+@keyframes scrollFlags {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-120px);
+  }
+}
+
+.container { max-width: 1100px; margin: auto; padding: 3rem 2rem; }
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--light);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  color: var(--dark);
+}
+
+.card h3 { margin-bottom: 0.5rem; color: var(--primary); }
+
+.highlight {
+  background: #fff0f0;
+  padding: 2rem;
+  border-left: 6px solid var(--secondary);
+  margin: 2rem 0;
+  color: var(--dark);
+  flex: 1 1 300px;
+}
+
+/* Flex container for highlight and slideshow */
+.highlight-slideshow-wrapper {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+/* =========================
+   Slideshow Container
+========================= */
+.slideshow {
+  flex: 1 1 300px;        /* adapt in flex layouts */
+  position: relative;      /* for buttons */
+  width: 100%;
+  max-width: 500px;        /* optional max width */
+  height: auto;            /* height adapts to image */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+/* =========================
+   Slides
+========================= */
+.slide {
+  display: none;           /* hidden by default */
+  cursor: pointer;         /* clickable for lightbox */
+  width: 100%;
+  height: auto;
+  position: relative;      /* keeps it in normal flow */
+}
+
+.slide.active {
+  display: block;
+}
+
+/* =========================
+   Slide Images
+========================= */
+/* Slides images – fill the container naturally */
+.slide img {
+  width: 100%;       /* fill width of container */
+  height: 300px;     /* keep your fixed box height */
+  object-fit: contain; /* make entire image visible */
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+  background: #f0f0f0; /* optional, in case image doesn't fill box completely */
+}
+
+.slide img:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   Navigation Buttons
+========================= */
+.slideshow button.prev,
+.slideshow button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 4px;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.slideshow button.prev:hover,
+.slideshow button.next:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+.slideshow button.prev { left: 8px; }
+.slideshow button.next { right: 8px; }
+
+/* =========================
+   Lightbox Overlay
+========================= */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.lightbox img {
+  width: auto !important;
+  height: 80vh !important; /* 90% of viewport height */
+  max-width: 85vw !important; /* 95% of viewport width */
+}
+.lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 32px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -20px;        /* adjust so it sits above image corner */
+  right: -20px;
+  background: #fff;
+  color: #000;
+  border: none;
+  font-size: 3rem;    /* make the X big */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  line-height: 55px;  /* vertically center the × */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 10000;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* =========================
+   Responsive Tweaks
+========================= */
+@media (max-width: 768px) {
+  .slideshow button.prev,
+  .slideshow button.next {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+.cta {
+  background: var(--secondary);
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+}
+
+.cta a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.6rem;
+  background: white;
+  color: var(--secondary);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta a:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+footer {
+  background: #111;
+  color: #ccc;
+  padding: 2rem;
+  font-size: 0.9rem;
+}
+
+footer a { color: #ccc; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 700px) {
+  .hero h2 { font-size: 1.8rem; }
+  .nav ul { justify-content: center; }
+  .highlight-slideshow-wrapper {
+    flex-direction: column;
+  }
+  .flag-scroll-container {
+    width: 45px;
+    height: auto;
+    top: 50px;
+    right: 0.5rem;
+  }
+  .flag-scroll img {
+    width: 45px;
+    margin-bottom: 6px;
+  }
+  .nav a {
+    font-size: 1.1rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+@media (max-width: 700px) {
+
+  header {
+    padding: 1rem 1.2rem;
+  }
+
+  .nav {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .nav h1 {
+    font-size: 1.2rem;
+  }
+
+  /* Hamburger button */
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10002;
+  }
+
+  /* Hide menu by default */
+  .nav ul {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  /* Show menu when open */
+  .nav.nav-open ul {
+    display: flex;
+  }
+
+  .nav li {
+    width: 100%;
+  }
+
+  .nav a {
+    width: 100%;
+    text-align: center;
+    font-size: 1.15rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* Side strips as card-like panels below hero */
+@media (min-width: 1200px) {
+  .side-strip {
+    position: relative;
+    top: auto;
+    width: 250px; /* fixed width for cards */
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    background-color: rgba(0,0,0,0.05); /* subtle background */
+    padding: 1rem;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 2rem 1rem; /* spacing around cards */
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .side-strip.left {
+    float: left;
+    margin-right: 1.5rem;
+  }
+
+  .side-strip.right {
+    float: right;
+    margin-left: 1.5rem;
+  }
+
+  /* Reset body margins so content flows naturally */
+  body {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* Hide side strips on tablets and smaller */
+@media (max-width: 1200px) {
+  .side-strip {
+    display: none !important;
+  }
+}
