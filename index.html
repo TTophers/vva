@@ -107,29 +107,42 @@
     </div>
 
     <div class="slideshow" aria-label="Slideshow of images">
-      <div class="slide active">
-        <img src="/pics/slides1.avif" alt="Slide 1" class="slide-img"/>
+      <div class="slide active" data-caption="Mike Huber awarded the Chapter Member of The Year in 2023">
+        <img src="/pics/slides1.avif"  alt="Slide 1" class="slide-img"/>
       </div>
-      <div class="slide">
-        <img src="/pics/slides2.avif" alt="Slide 2" class="slide-img"/>
+      <div class="slide" data-caption="Chapter Chaplain Garry (“Chappy”) Turks awarded the Chapel of
+       Four Chaplains’ Legion of Honor Bronze Medallion of Honor.">
+        <img src="/pics/slides2.avif"  alt="Slide 2" class="slide-img"/>
       </div>
-      <div class="slide">
-        <img src="/pics/slides3.avif" alt="Slide 3" class="slide-img"/>
+      <div class="slide" data-caption="Principle person to create and sponsor the CO Freedom Memorial">
+        <img src="/pics/slides3.avif"  alt="Slide 3" class="slide-img"/>
       </div>
-      <div class="slide">
-        <img src="/pics/slides4.avif" alt="Slide 4" class="slide-img"/>
+      <div class="slide" data-caption="Quilts of Valor - January 2020">
+        <img src="/pics/slides4.avif"  alt="Slide 4" class="slide-img"/>
       </div>
-      <div class="slide">
-        <img src="/pics/slides5.avif" alt="Slide 5" class="slide-img"/>
+      <div class="slide" data-caption="Donor's Recognition">
+        <img src="/pics/slides5.avif"  alt="Slide 5" class="slide-img"/>
       </div>
-      <div class="slide">
+      <div class="slide" data-caption="Joe and Ed in Washington D.C. as part of 2023 Honor Flight">
         <img src="/pics/slides6.avif" alt="Slide 6" class="slide-img"/>
+      </div>
+      <div class="slide" data-caption="Rocky Mountain Honor Flight">
+        <img src="/pics/slides7.avif" alt="Slide 6" class="slide-img"/>
+      </div>
+      <div class="slide" data-caption="omen's Vietnam Memorial - Special dedication!">
+        <img src="/pics/slides8.avif" alt="Slide 6" class="slide-img"/>
+      </div>
+      <div class="slide" data-caption="Chapter Color Gaurd">
+        <img src="/pics/slides9.avif" alt="Slide 6" class="slide-img"/>
+      </div>
+      <div class="slide" data-caption="Gold Star Mother Moument At the Colorado Freedom MemoriaL">
+        <img src="/pics/slides10.avif" alt="Slide 6" class="slide-img"/>
       </div>
       <button class="prev" aria-label="Previous slide">Previous</button>
       <button class="next" aria-label="Next slide">Next</button>
     </div>
   </div>
-
+</section>
   <h2 class="section-title">What We Do</h2>
   <div class="card-grid">
     <div class="card">
@@ -145,7 +158,7 @@
       <p>Providing scholarships and educational support for veterans and families.</p>
     </div>
   </div>
-</section>
+
 
 <section class="container">
   <h2 class="section-title">Leadership & Recognition</h2>
@@ -221,6 +234,16 @@ slides.forEach(slide => {
       }
     });
   });
+});
+// --- Auto-scroll functionality ---
+const autoScrollDelay = 5000; // 5000ms = 5 seconds
+let autoScroll = setInterval(nextSlide, autoScrollDelay);
+
+// Optional: pause auto-scroll when user hovers over the slideshow
+const slideshowEl = document.querySelector('.slideshow');
+slideshowEl.addEventListener('mouseenter', () => clearInterval(autoScroll));
+slideshowEl.addEventListener('mouseleave', () => {
+  autoScroll = setInterval(nextSlide, autoScrollDelay);
 });
 
 showSlide(currentIndex);
