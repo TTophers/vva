@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +5,241 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vietnam Veterans of America – Chapter 1106</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+
+
+    main.container {
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 2.5rem;
+      min-height: 70vh;
+    }
+
+    @media (max-width: 900px) {
+      main.container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static !important;
+        margin-top: 2rem;
+        padding-top: 0;
+        border-top: 1px solid #ccc;
+      }
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      /* Remove hardcoded margin, use padding to match .membership-info (main .container has padding: 0 1rem) */
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin: 2rem 0 3rem 0;
+      font-size: 1.25rem;
+      color: #004080;
+      user-select: none;
+      max-width: 100%;
+      text-align: left;
+      box-sizing: border-box;
+    }
+    .scroll-indicator span {
+      font-size: 2.5rem;
+      animation: bounce 1.5s infinite;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* Membership info */
+    .membership-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .membership-info p {
+      margin-bottom: 1.25rem;
+      font-size: 1.15rem;
+    }
+    .membership-info img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      background: white;
+      padding: 1.5rem 1.75rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 1.15rem;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    .sidebar h3 {
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #004080;
+    }
+
+    .sidebar ul {
+      list-style: disc inside;
+      margin: 0 0 1.75rem 0;
+      padding-left: 0;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 0.75rem;
+    }
+
+    .meeting-info p,
+    .meeting-info address {
+      margin-bottom: 1rem;
+    }
+
+    .meeting-info address {
+      font-style: normal;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    /* PDFs section */
+    .pdf-downloads {
+      background-color: #004080;
+      color: white;
+      padding: 2rem 1rem;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pdf-downloads h3 {
+      font-size: 2.25rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .pdf-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .pdf-buttons a {
+      background-color: white;
+      color: #004080;
+      padding: 1rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      min-width: 220px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+    .pdf-buttons a:hover,
+    .pdf-buttons a:focus {
+      background-color: #003366;
+      color: #e0e0e0;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+  </style>
 </head>
 <body>
 
-
   <header>
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Primary Navigation">
       <h1>VVA Chapter 1106</h1>
       <ul>
         <li><a href="/index.html">Home</a></li>
-        <li><a href="/membership.html">Membership</a></li>
+        <li><a href="/membership.html" aria-current="page">Membership</a></li>
         <li><a href="/donate.html">Donate</a></li>
         <li><a href="/newsletter.html">Newsletter</a></li>
         <li><a href="/friends.html">Friends of 1106</a></li>
       </ul>
     </nav>
-    
-    <button class="nav-toggle" aria-label="Toggle navigation">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       ☰ Menu
     </button>
-  
   </header>
+  <main class="container" role="main" aria-labelledby="membership-title">
+    <section class="membership-info" aria-label="Membership Information">
+      <div class="membership-header" style="display: flex; align-items: center; gap: 1rem;">
+        <h2 id="membership-title">Membership</h2>
+        <div class="scroll-indicator" aria-hidden="true">
+          <p>Scroll down for membership forms</p>
+          <span>⬇️</span>
+        </div>
+      </div>
+      <p>Welcome to the Vietnam Veterans of America Chapter 1106 membership page. We are dedicated to supporting veterans and their families through camaraderie, advocacy, and community involvement. Joining our chapter provides an opportunity to connect with fellow veterans, participate in meaningful events, and make a difference in our community.</p>
+      <p>We encourage all veterans to consider becoming a member. Your involvement helps us strengthen our voice and expand our outreach. Whether you are a new veteran or have been part of the community for years, you will find a welcoming and supportive environment here.</p>
+      <img src="/pics/membership-pic1.avif" alt="Vietnam Veterans gathering" />
+      <section class="pdf-downloads" aria-label="Membership Documents">
+        <h3>Membership Documents</h3>
+        <div class="pdf-buttons">
+          <a href="/pics/aplcationform.pdf" target="_blank" rel="noopener noreferrer">View Application Form (PDF)</a>
+          <a href="/pics/survey.pdf" target="_blank" rel="noopener noreferrer">View Member Survey (PDF)</a>
+          <a href="/pics/transferfrom.pdf" target="_blank" rel="noopener noreferrer">View Transfer Form (PDF)</a>
+        </div>
+      </section>
+    </section>
 
+    <aside class="sidebar" aria-label="Membership Eligibility and Benefits">
+      <section class="eligibility">
+        <h3>Who Can Join</h3>
+        <ul>
+          <li>Vietnam service eligibility dates: August 5, 1964 – May 7, 1975</li>
+          <li>Other eligibility criteria may apply based on service and discharge status</li>
+        </ul>
+      </section>
+
+      <section class="why-join">
+        <h3>Why Join Chapter 1106?</h3>
+        <ul>
+          <li>Build lifelong camaraderie with fellow veterans</li>
+          <li>Participate in regular chapter meetings and events</li>
+          <li>Engage in veteran advocacy and support initiatives</li>
+          <li>Contribute to community service and outreach programs</li>
+        </ul>
+      </section>
+
+      <section class="meeting-info">
+        <h3>Meeting Location</h3>
+        <p>Our chapter meetings are held at:</p>
+        <address>
+          123 Veteran's Hall<br />
+          Main Street<br />
+          Springfield, State 12345
+        </address>
+        <p><a href="https://maps.google.com/?q=123+Veteran's+Hall,+Springfield" target="_blank" rel="noopener">View Map &amp; Directions</a></p>
+      </section>
+    </aside>
+
+  </main>
 
 
 
@@ -45,3 +257,5 @@
       });
     }
   </script>
+</body>
+</html>
