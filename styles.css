@@ -620,3 +620,15 @@ footer a:hover { text-decoration: underline; }
     display: none !important;
   }
 }
+
+/* Hide nav flags by default */
+.navy-flags {
+  display: none;
+}
+
+/* Show nav flags only on very large screens */
+@media (min-width: 1240px) {
+  .navy-flags {
+    display: flex !important;
+  }
+}
