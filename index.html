@@ -9,10 +9,12 @@
 </head>
 <body>
 
-<header>
-  <nav class="nav">
-    <h1 class="">VVA Chapter 1106</h1>
-    <div class="navy-flags  items-center gap-2 ml-4">
+<header class="bg-[#0b3d91] px-4 py-5">
+ <nav class="flex items-center highth-10 justify-between flex-wrap">
+    <h1 class="text-[1.4rem] tracking-[0.5px] text-white">
+      VVA Chapter 1106
+    </h1>
+    <div class="navy-flags hidden lg:flex items-center gap-2 ml-4">
       <img src="/pics/powflag-vva.jpg" alt="POW flag" class="h-6 w-auto object-contain" />
       <img src="/pics/usaflag-vva.png" alt="USA flag" class="h-6 w-auto object-contain" />
       <img src="/pics/vetflag-vva.jpg" alt="Veteran flag" class="h-6 w-auto object-contain" />
@@ -20,18 +22,35 @@
       <img src="/pics/usaflag-vva.png" alt="USA flag" class="h-6 w-auto object-contain" />
       <img src="/pics/vetflag-vva.jpg" alt="Veteran flag" class="h-6 w-auto object-contain" />
     </div>
-    <ul class="hidden md:flex items-center gap-6 ml-auto">
-      <li><a href="/index.html" >Home</a></li>
-      <li><a href="/membership.html" >Membership</a></li>
-      <li><a href="/donate.html">Donate</a></li>
-      <li><a href="/newsletter.html" class="text-sm font-medium text-gray-700 hover:text-black transition">Newsletter</a></li>
-      <li><a href="/friends.html" class="text-sm font-medium text-gray-700 hover:text-black transition">Friends of 1106</a></li>
+    <ul class="hidden lg:flex flex-wrap gap-5 list-none ml-auto">
+      <li><a href="/index.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Home</a></li>
+      <li><a href="/membership.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Membership</a></li>
+      <li><a href="/links.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Links</a></li>
+      <li><a href="/donate.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Donate</a></li>
+      <li><a href="/newsletter.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Newsletter</a></li>
+      <li><a href="/friends.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Friends of 1106</a></li>
     </ul>
   </nav>
-  
-  <button class="nav-toggle" aria-label="Toggle navigation">
-    ☰ Menu
+
+  <button
+    class="lg:hidden ml-auto flex flex-col justify-center items-center gap-1 nav-toggle p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-white/60"
+    aria-label="Toggle navigation"
+    aria-expanded="false"
+  >
+    <span class="w-6 h-0.5 bg-white"></span>
+    <span class="w-6 h-0.5 bg-white"></span>
+    <span class="w-6 h-0.5 bg-white"></span>
   </button>
+
+
+<div class="mobile-menu hidden lg:hidden bg-[#0b3d91] px-4 py-6 space-y-3">
+  <a href="/index.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Home</a>
+  <a href="/membership.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Membership</a>
+  <a href="/links.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Links</a>
+  <a href="/donate.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Donate</a>
+  <a href="/newsletter.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Newsletter</a>
+  <a href="/friends.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Friends of 1106</a>
+</div>
 
 </header>
 
@@ -40,32 +59,251 @@
   <p>"Never again will one generation of veterans abandon another."</p>
 </section>
 
-<!-- Left informational strip -->
-<aside class="side-strip left">
-  <div class="side-content">
-    <h3>Folds of the American Flag</h3>
+<section class="max-w-full mt-12 mx-auto grid grid-cols-1 xl:grid-cols-[16rem_1fr_16rem] gap-6 px-2 xl:px-4">
+
+  <!-- Left Sidebar -->
+  <aside class="hidden xl:block w-64 bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md text-sm leading-relaxed self-start">
+    <img src="/pics/ff1.jpg" alt="FF1" class="w-full h-auto rounded-md mb-4 object-cover" />
+    <h3 class="font-semibold mb-2">Folds of the American Flag</h3>
     <p>When folding the flag to store or present, as a way to honor the life of a fallen soldier, 13 Folds are required. Here are the reasons for each fold:</p>
+    <p><strong>1st Fold</strong> - A symbol of life</p>
     <p><strong>2nd Fold</strong> - Signifies our belief in eternal life.</p>
     <p><strong>3rd Fold</strong> - Honors the veteran who gave a portion of their life in defense of our country.</p>
-    <p><strong>4th Fold</strong> -  Represents our trust in God and reliance on His guidance.</p>
+    <p><strong>4th Fold</strong> - Represents our trust in God and reliance on His guidance.</p>
     <p><strong>5th Fold</strong> - Pays respect to our country, which, as Stephen Decatur said, “may she always be right, but it is still our country, right or wrong.” </p>
     <p><strong>6th Fold</strong> - Represents our hearts, pledging allegiance to the flag and the republic it stands for.</p>
     <p><strong>7th Fold</strong> - A tribute to the armed forces who protect our country and our flag.</p>
     <p><strong>8th Fold</strong> - Honors those who faced the “valley of the shadow of death” for our freedom, and our mothers, for whom the flag flies.</p>
     <p><strong>9th Fold</strong> - Recognizes the devotion and loyalty of women, whose faith and love shape the character of our nation. </p>
-    <p><strong>10th Fold</strong> -  Honors fathers who have given their sons and daughters for the defense of the country.</p>
+    <p><strong>10th Fold</strong> - Honors fathers who have given their sons and daughters for the defense of the country.</p>
     <p><strong>11th Fold</strong> - For Hebrew citizens, it represents the lower portion of King David’s and King Solomon’s seal, glorifying the God of Abraham, Isaac, and Jacob.</p>
     <p><strong>12th Fold</strong> - For Christian citizens, it symbolizes eternity and honors God the Father, Son, and Holy Ghost.</p>
     <p><strong>13th Fold</strong> - When fully folded, the stars are uppermost, reminding us of our national motto, “In God We Trust.”</p>
-    <!-- add remaining folds here -->
-  </div>
-</aside>
+    <img src="/pics/ff2.jpg" alt="FF2" class="w-full h-auto rounded-md mt-4 object-cover" />
+  </aside>
 
-<!-- Right informational strip -->
-<aside class="side-strip right">
-  <div class="side-content">
-    <h3>ROTRUCK - 2015</h3>
-    <p>Welcome Home
+  <!-- Main Content -->
+  <main class="min-w-0 px-2 xl:px-6">
+    <h2 class="section-title">Our Mission</h2>
+    <p>Vietnam Veterans of America, Chapter 1106 is dedicated to promoting and supporting the full range of issues important to Vietnam veterans, creating a strong identity for our generation, and changing public perception through service, advocacy, and remembrance.</p>
+
+    <div class="highlight-slideshow-wrapper">
+      <div class="highlight">
+        <strong>Monthly Meetings:</strong><br />
+        1st Saturday of each month – 9:00 AM<br />
+        South Metro Fire District<br />
+        9195 E Mineral Ave<br />
+        Centennial, CO 80112
+      </div>
+
+      <div class="slideshow" aria-label="Slideshow of images">
+        <div class="slide active" data-caption="Mike Huber awarded the Chapter Member of The Year in 2023">
+          <img src="/pics/slides1.avif"  alt="Slide 1" class="slide-img"/>
+        </div>
+        <div class="slide" data-caption="Chapter Chaplain Garry (“Chappy”) Turks awarded the Chapel of
+         Four Chaplains’ Legion of Honor Bronze Medallion of Honor.">
+          <img src="/pics/slides2.avif"  alt="Slide 2" class="slide-img"/>
+        </div>      
+        <div class="slide" data-caption="">
+          <img src="/pics/slides4.avif"  alt="Slide 3" class="slide-img"/>
+        </div>
+        <div class="slide" data-caption="">
+        <img src="/pics/slides4.5.JPG"  alt="Slide 4" class="slide-img"/>
+      </div>
+        <div class="slide" data-caption="Principle person to create and sponsor the CO Freedom Memorial">
+          <img src="/pics/slides3.avif"  alt="Slide 5" class="slide-img"/>
+        </div>
+        <div class="slide" data-caption="omen's Vietnam Memorial - Special dedication!">
+          <img src="/pics/slides8.avif" alt="Slide 6" class="slide-img"/> 
+        </div>
+        <div class="slide" data-caption="Gold Star Mother Moument At the Colorado Freedom MemoriaL">
+          <img src="/pics/slides10.avif" alt="Slide 6" class="slide-img"/>
+        </div>
+        <button class="prev" aria-label="Previous slide">Previous</button>
+        <button class="next" aria-label="Next slide">Next</button>
+      </div>
+    </div>
+
+    <section class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+      <h2 class="text-2xl text-center md:text-3xl font-bold mb-8" style="color: #0b3d91;">
+        What We Do
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-lg font-semibold mb-2" style="color: #0b3d91;">Veteran Advocacy</h3>
+          <p class="text-slate-700 leading-relaxed">
+            Supporting veterans through policy, outreach, and local initiatives.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-lg font-semibold mb-2" style="color: #0b3d91;">Community & Remembrance</h3>
+          <p class="text-slate-700 leading-relaxed">
+            Honoring service and sacrifice, including the Colorado Freedom Memorial.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <h3 class="text-lg font-semibold mb-2" style="color: #0b3d91;">Education & Scholarships</h3>
+          <p class="text-slate-700 leading-relaxed">
+            Providing scholarships and educational support for veterans and families.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="max-w-6xl mx-auto px-6 py-12">
+      <h2 class="text-2xl text-center md:text-3xl font-bold text-slate-800 mb-6">
+        Leadership & Chapter Meetings
+      </h2>
+    
+      <div class="flex flex-col md:flex-row gap-6">
+    
+        <!-- Zoom Meetings (FIRST on mobile) -->
+        <div class="order-1 md:order-2 md:w-1/3 bg-slate-800 text-white rounded-lg p-6 flex flex-col justify-between"
+        style="background-color: #0b3d91;">
+          <div>
+            <h3 class="text-xl font-semibold mb-3">
+              Chapter Zoom Meetings
+            </h3>
+            <p class="text-base leading-relaxed mb-6">
+              For members who are unable to attend in person, chapter meetings are also held online.
+              Simply click the button below at meeting time.
+            </p>
+          </div>
+    
+          <a
+            href="#"
+            class="block text-center bg-white text-slate-800 font-bold text-lg px-6 py-4 rounded-md shadow hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800 transition"
+            aria-label="Join the Chapter 1106 Zoom Meeting"
+          >
+            Join Zoom Meeting
+          </a>
+    
+          <p class="text-sm text-slate-300 mt-4">
+  
+          </p>
+        </div>
+    
+        <!-- Cabinet Members -->
+        <div class="order-2 md:order-1 md:w-2/3 bg-slate-100 rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-slate-800 mb-4">
+            Chapter Cabinet Members
+          </h3>
+    
+          <p class="text-sm text-slate-600 mb-3">
+            Scroll to view the full list of cabinet members.
+          </p>
+  
+          <div class="h-[230px] overflow-y-auto pr-2 space-y-4">
+    
+            <!-- Member -->
+            <div class="flex items-center gap-4 border-b border-slate-200 pb-3">
+              <img
+                src="/pics/placeholder-person.png"
+                alt="Rick Crandall"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p class="font-semibold text-slate-800">Rick Crandall</p>
+                <p class="text-sm text-slate-600">
+                  Colorado Freedom Memorial Sponsor
+                </p>
+              </div>
+            </div>
+    
+            <!-- Member -->
+            <div class="flex items-center gap-4 border-b border-slate-200 pb-3">
+              <img
+                src="/pics/placeholder-person.png"
+                alt="Joe Dempsey"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p class="font-semibold text-slate-800">Joe Dempsey</p>
+                <p class="text-sm text-slate-600">
+                  Honor Flight Representative
+                </p>
+              </div>
+            </div>
+    
+            <!-- Member -->
+            <div class="flex items-center gap-4">
+              <img
+                src="/pics/placeholder-person.png"
+                alt="Ed Seiler"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p class="font-semibold text-slate-800">Ed Seiler</p>
+                <p class="text-sm text-slate-600">
+                  Honor Flight Representative
+                </p>
+              </div>
+            </div>
+            <!-- Member -->
+            <div class="flex items-center gap-4">
+              <img
+                src="/pics/placeholder-person.png"
+                alt="Ed Seiler"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <p class="font-semibold text-slate-800">Ed Seiler</p>
+                <p class="text-sm text-slate-600">
+                  Honor Flight Representative
+                </p>
+              </div>
+            </div>
+            
+    
+            <!-- Add more members below as needed -->
+    
+          </div>
+        </div>
+    
+      </div>
+    </section>
+        <section class="mt-28 mb-28 bg-slate-800 text-white rounded-lg px-6 py-10 max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-4">
+        Support Our Veterans
+      </h2>
+
+      <p class="text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+        Donations made through the official Vietnam Veterans of America national line directly support veterans and their families.
+        This phone donation is handled by <strong>VVA.org</strong> and is separate from the personalized donation options on this website.
+      </p>
+
+      <p class="text-lg md:text-xl font-medium mb-6">
+        Call the official VVA donation line:
+      </p>
+
+      <a
+        href="tel:1800‑7758387"
+        class="inline-block bg-white text-slate-800 font-bold text-lg px-8 py-4 rounded-md shadow-md hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-800 transition"
+        aria-label="Call the official Vietnam Veterans of America donation phone number"
+      >
+        1‑800‑775-8387
+      </a>
+
+      <p class="text-sm text-slate-300 mt-4">
+       
+      </p>
+    </section>
+  </main>
+  
+
+  <!-- Right Sidebar -->
+  <aside class="hidden xl:block w-64 bg-gray-50 p-4 rounded-lg border border-gray-300 shadow-md text-sm leading-relaxed self-start">
+    <!-- Image at top, fills column width -->
+    <img src="/pics/rotruck.jpg" alt="ROTRUCK" class="w-full h-auto rounded-md mb-4 object-cover" />
+
+    <h3 class="font-semibold mb-2">ROTRUCK - 2015</h3>
+    <p>
+      Welcome Home
       I talked to some Vietnam Vets today.
       The subject wasn't about fun and play.
       It was about the heartache of coming home, To a group of people who threw a stone.
@@ -89,104 +327,17 @@
       It may just heal a wound that still festers within,
       But most times they'll nod and give you a grin!
       God bless them alllll Amen
-      ROTRUCK - 2015</p>
-  </div>
-</aside>
-<section class="container">
-  <h2 class="section-title">Our Mission</h2>
-  <p>Vietnam Veterans of America, Chapter 1106 is dedicated to promoting and supporting the full range of issues important to Vietnam veterans, creating a strong identity for our generation, and changing public perception through service, advocacy, and remembrance.</p>
+      ROTRUCK - 2015
+    </p>
+    <img src="/pics/rotruck2.jpg" alt="ROTRUCK 2" class="w-full h-auto rounded-md mb-6 object-cover" />
+  </aside>
 
-  <div class="highlight-slideshow-wrapper">
-    <div class="highlight">
-      <strong>Monthly Meetings:</strong><br />
-      1st Saturday of each month – 9:00 AM<br />
-      South Metro Fire District<br />
-      9195 E Mineral Ave<br />
-      Centennial, CO 80112
-    </div>
-
-    <div class="slideshow" aria-label="Slideshow of images">
-      <div class="slide active" data-caption="Mike Huber awarded the Chapter Member of The Year in 2023">
-        <img src="/pics/slides1.avif"  alt="Slide 1" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Chapter Chaplain Garry (“Chappy”) Turks awarded the Chapel of
-       Four Chaplains’ Legion of Honor Bronze Medallion of Honor.">
-        <img src="/pics/slides2.avif"  alt="Slide 2" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Principle person to create and sponsor the CO Freedom Memorial">
-        <img src="/pics/slides3.avif"  alt="Slide 3" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Quilts of Valor - January 2020">
-        <img src="/pics/slides4.avif"  alt="Slide 4" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Donor's Recognition">
-        <img src="/pics/slides5.avif"  alt="Slide 5" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Joe and Ed in Washington D.C. as part of 2023 Honor Flight">
-        <img src="/pics/slides6.avif" alt="Slide 6" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Rocky Mountain Honor Flight">
-        <img src="/pics/slides7.avif" alt="Slide 6" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="omen's Vietnam Memorial - Special dedication!">
-        <img src="/pics/slides8.avif" alt="Slide 6" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Chapter Color Gaurd">
-        <img src="/pics/slides9.avif" alt="Slide 6" class="slide-img"/>
-      </div>
-      <div class="slide" data-caption="Gold Star Mother Moument At the Colorado Freedom MemoriaL">
-        <img src="/pics/slides10.avif" alt="Slide 6" class="slide-img"/>
-      </div>
-      <button class="prev" aria-label="Previous slide">Previous</button>
-      <button class="next" aria-label="Next slide">Next</button>
-    </div>
-  </div>
-</section>
-  <h2 class="section-title">What We Do</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Veteran Advocacy</h3>
-      <p>Supporting veterans through policy, outreach, and local initiatives.</p>
-    </div>
-    <div class="card">
-      <h3>Community & Remembrance</h3>
-      <p>Honoring service and sacrifice, including the Colorado Freedom Memorial.</p>
-    </div>
-    <div class="card">
-      <h3>Education & Scholarships</h3>
-      <p>Providing scholarships and educational support for veterans and families.</p>
-    </div>
-  </div>
-
-
-<section class="container">
-  <h2 class="section-title">Leadership & Recognition</h2>
-  <div class="card-grid">
-    <div class="card">
-      <h3>Rick Crandall</h3>
-      <p>Principal figure in the creation and sponsorship of the Colorado Freedom Memorial.</p>
-    </div>
-    <div class="card">
-      <h3>Joe Dempsey & Ed Seiler</h3>
-      <p>Represented Chapter 1106 in Washington D.C. as part of the 2023 Honor Flight.</p>
-    </div>
-  </div>
 </section>
 
-<section class="cta">
-  <h2>Support Our Veterans</h2>
-  <p>Donations of clothes and household goods directly support our mission.</p>
-  <a href="/donate.html">Donate Now</a>
-</section>
 
 <footer>
   <p><strong>Vietnam Veterans of America, Chapter 1106</strong></p>
   <p>PO Box 441291 · Aurora, CO 80044</p>
-  <p>
-    <a href="#">VVA National</a> · 
-    <a href="#">POW/MIA</a> · 
-    <a href="https://www.vvacostatecouncil.org" target="_blank">Colorado State Council</a>
-  </p>
 </footer>
 <script>
 const slides = document.querySelectorAll('.slideshow .slide');
@@ -246,18 +397,19 @@ slideshowEl.addEventListener('mouseleave', () => {
 });
 
 showSlide(currentIndex);
-  // Mobile navigation toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
+// Mobile navigation toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', () => {
-      nav.classList.toggle('nav-open');
-
-      const isOpen = nav.classList.contains('nav-open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-  }
+if (navToggle && mobileMenu) {
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    navToggle.setAttribute(
+      'aria-expanded',
+      !mobileMenu.classList.contains('hidden')
+    );
+  });
+}
 </script>
 
 </body>

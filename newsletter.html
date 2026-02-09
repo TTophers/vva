@@ -7,117 +7,103 @@
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  
-  <header>
-    <nav class="nav">
-      <h1>VVA Chapter 1106</h1>
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/membership.html">Membership</a></li>
-        <li><a href="/donate.html">Donate</a></li>
-        <li><a href="/newsletter.html">Newsletter</a></li>
-        <li><a href="/friends.html">Friends of 1106</a></li>
-      </ul>
-    </nav>
-    
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      ☰ Menu
-    </button>
-  
-  </header>
+<body class="flex flex-col min-h-screen">
+  <header class="bg-[#0b3d91] px-4 py-5">
+    <nav class="flex items-center highth-10 justify-between flex-wrap">
+       <h1 class="text-[1.4rem] tracking-[0.5px] text-white">
+         VVA Chapter 1106
+       </h1>
+       <div class="navy-flags hidden lg:flex items-center gap-2 ml-4">
+         <img src="/pics/powflag-vva.jpg" alt="POW flag" class="h-6 w-auto object-contain" />
+         <img src="/pics/usaflag-vva.png" alt="USA flag" class="h-6 w-auto object-contain" />
+         <img src="/pics/vetflag-vva.jpg" alt="Veteran flag" class="h-6 w-auto object-contain" />
+         <img src="/pics/powflag-vva.jpg" alt="POW flag" class="h-6 w-auto object-contain" />
+         <img src="/pics/usaflag-vva.png" alt="USA flag" class="h-6 w-auto object-contain" />
+         <img src="/pics/vetflag-vva.jpg" alt="Veteran flag" class="h-6 w-auto object-contain" />
+       </div>
+       <ul class="hidden lg:flex flex-wrap gap-5 list-none ml-auto">
+         <li><a href="/index.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Home</a></li>
+         <li><a href="/membership.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Membership</a></li>
+         <li><a href="/links.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Links</a></li>
+         <li><a href="/donate.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Donate</a></li>
+         <li><a href="/newsletter.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Newsletter</a></li>
+         <li><a href="/friends.html" class="text-[var(--light)] no-underline text-[1.05rem] font-bold px-[1.1rem] py-[0.6rem] rounded-[6px] bg-white/10 transition duration-200 hover:bg-[var(--light)] hover:text-[var(--primary)] hover:shadow-md">Friends of 1106</a></li>
+       </ul>
+     </nav>
+   
+     <button
+       class="lg:hidden ml-auto flex flex-col justify-center items-center gap-1 nav-toggle"
+       aria-label="Toggle navigation"
+       aria-expanded="false"
+     >
+       <span class="w-6 h-0.5 bg-white"></span>
+       <span class="w-6 h-0.5 bg-white"></span>
+       <span class="w-6 h-0.5 bg-white"></span>
+     </button>
+   
+   
+   <div class="mobile-menu hidden lg:hidden bg-[#0b3d91] px-4 py-6 space-y-3">
+     <a href="/index.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Home</a>
+     <a href="/membership.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Membership</a>
+     <a href="/links.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Links</a>
+     <a href="/donate.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Donate</a>
+     <a href="/newsletter.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Newsletter</a>
+     <a href="/friends.html" class="block w-full text-center text-white font-semibold text-lg py-4 rounded-lg bg-white/10 hover:bg-white hover:text-[#0b3d91] transition shadow-sm">Friends of 1106</a>
+   </div>
+   
+   </header>
 
 
  <!-- Main Content -->
- <main class="max-w-5xl mx-auto p-6">
+ <main class="max-w-5xl mx-auto p-6 flex-1">
   <h2 class="text-3xl font-bold text-blue-900 mb-6">Newsletter Archive</h2>
   <p class="mb-8 text-gray-700">
-    Here you can find our latest newsletters. We post two newsletters each month and always keep the last two months available for viewing.
+    We post a newsletter every two months. Here are the editions from January 2026 onward.
   </p>
 
-  <!-- January 2026 -->
-  <h3 class="text-2xl font-semibold text-blue-800 mt-10 mb-4">January 2026</h3>
-  <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 mb-10">
-    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-      <h4 class="text-xl font-semibold text-blue-800 mb-2">January 1, 2026 Newsletter</h4>
+  <!-- Newsletter Months Container -->
+  <div class="flex flex-wrap gap-6">
+    <!-- January 2026 -->
+    <section class="newsletter-month flex-1 min-w-[300px] bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+      <h4 class="text-2xl font-semibold text-blue-800 mb-2">January 1, 2026 Newsletter</h4>
       <p class="text-gray-600 mb-4">Highlights from this edition, including chapter events, member spotlights, and upcoming meetings.</p>
       <a href="/newsletters/jan-01-2026.pdf" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
         Read PDF
       </a>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-      <h4 class="text-xl font-semibold text-blue-800 mb-2">January 15, 2026 Newsletter</h4>
-      <p class="text-gray-600 mb-4">Mid-month updates, announcements, and veteran resources for our members.</p>
-      <a href="/newsletters/jan-15-2026.pdf" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
-        Read PDF
-      </a>
-    </div>
-  </div>
+    </section>
 
-  <!-- December 2025 -->
-  <h3 class="text-2xl font-semibold text-blue-800 mt-10 mb-4">December 2025</h3>
-  <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 mb-10">
-    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-      <h4 class="text-xl font-semibold text-blue-800 mb-2">December 1, 2025 Newsletter</h4>
-      <p class="text-gray-600 mb-4">Holiday highlights, member news, and a look back at the year's accomplishments.</p>
-      <a href="/newsletters/dec-01-2025.pdf" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
+    <!-- March 2026 -->
+    <section class="newsletter-month flex-1 min-w-[300px] bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+      <h4 class="text-2xl font-semibold text-blue-800 mb-2">March 2026 Newsletter</h4>
+      <p class="text-gray-600 mb-4">Coming in March.</p>
+      <a href="#" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
         Read PDF
       </a>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-      <h4 class="text-xl font-semibold text-blue-800 mb-2">December 15, 2025 Newsletter</h4>
-      <p class="text-gray-600 mb-4">End-of-year announcements, upcoming events, and holiday greetings from the chapter.</p>
-      <a href="/newsletters/dec-15-2025.pdf" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
-        Read PDF
-      </a>
-    </div>
-  </div>
-
-  <!-- November 2025 -->
-  <h3 class="text-2xl font-semibold text-blue-800 mt-10 mb-4">November 2025</h3>
-  <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 mb-10">
-    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-      <h4 class="text-xl font-semibold text-blue-800 mb-2">November 1, 2025 Newsletter</h4>
-      <p class="text-gray-600 mb-4">Veterans Day coverage, special recognition of members, and community service updates.</p>
-      <a href="/newsletters/nov-01-2025.pdf" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
-        Read PDF
-      </a>
-    </div>
-    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-      <h4 class="text-xl font-semibold text-blue-800 mb-2">November 15, 2025 Newsletter</h4>
-      <p class="text-gray-600 mb-4">Post-Veterans Day reflections, upcoming meeting reminders, and support resources.</p>
-      <a href="/newsletters/nov-15-2025.pdf" target="_blank" class="inline-block px-4 py-2 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
-        Read PDF
-      </a>
-    </div>
+    </section>
   </div>
 </main>
-
-<footer></footer>
+<footer class="bg-[#111] text-center w-full p-4">
   <p><strong>Vietnam Veterans of America, Chapter 1106</strong></p>
   <p>PO Box 441291 · Aurora, CO 80044</p>
-  <p>
-    <a href="#">VVA National</a> · 
-    <a href="#">POW/MIA</a> · 
-    <a href="https://www.vvacostatecouncil.org" target="_blank">Colorado State Council</a>
-  </p>
 </footer>
 
 
 
   <script>
-    // Mobile navigation toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-  
-    if (navToggle && nav) {
-      navToggle.addEventListener('click', () => {
-        nav.classList.toggle('nav-open');
-  
-        const isOpen = nav.classList.contains('nav-open');
-        navToggle.setAttribute('aria-expanded', isOpen);
-      });
-    }
+// Mobile navigation toggle
+const navToggle = document.querySelector('.nav-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+if (navToggle && mobileMenu) {
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+
+    navToggle.setAttribute(
+      'aria-expanded',
+      !mobileMenu.classList.contains('hidden')
+    );
+  });
+}
   </script>
   
   </body>
